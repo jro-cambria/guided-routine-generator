@@ -1,0 +1,22 @@
+<!-- app/views/routines/new.html.erb -->
+<h1>Create a New Routine</h1>
+
+<%= form_with(model: @routine, url: routines_path) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <!-- Add more fields as needed for your Routine model -->
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit "Create Routine" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to Routines", routines_path %>

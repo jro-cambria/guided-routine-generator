@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_10_022002) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_10_191659) do
   create_table "missions", force: :cascade do |t|
     t.string "name"
     t.string "playlist_url"
@@ -26,16 +26,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_10_022002) do
     t.integer "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "routine_id", null: false
     t.index ["mission_id"], name: "index_routine_missions_on_mission_id"
     t.index ["route_id"], name: "index_routine_missions_on_route_id"
+    t.index ["routine_id"], name: "index_routine_missions_on_routine_id"
   end
 
   create_table "routines", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   add_foreign_key "routine_missions", "missions"
-  add_foreign_key "routine_missions", "routes"
+  add_foreign_key "routine_missions", "routines"
 end

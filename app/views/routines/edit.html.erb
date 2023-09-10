@@ -1,0 +1,21 @@
+<h1>Edit Routine</h1>
+
+<%= form_with(model: @routine, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <!-- Add more fields as needed -->
+
+  <div class="actions">
+    <%= form.submit "Update Routine" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", routine_path(@routine), class: "btn btn-secondary" %>

@@ -1,0 +1,18 @@
+<h1><%= @routine.name %></h1>
+<h3>Description:</h3>
+<p><%= @routine.description %></p>
+<h2>Missions:</h2>
+<ol>
+  <% @routine.routine_missions.order(:sequence).each do |routine_mission| %>
+    <li><%= routine_mission.mission.name %> - <%= routine_mission.time %> min</li>
+  <% end %>
+</ol>
+
+<%= link_to "Edit Routine", edit_routine_path(@routine), class: "btn btn-primary" %>
+
+<%= form_for(@routine, url: routine_path(@routine), method: :delete) do |f| %>
+  <%= f.submit "Delete Routine", data: { confirm: "Are you sure you want to delete this routine?" }, class: "btn btn-danger" %>
+<% end %>
+
+<!-- Link to Routines index page -->
+<%= link_to "Back to Routines", routines_path %>
