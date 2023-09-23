@@ -34,8 +34,6 @@ class RoutinesController < ApplicationController
         render :edit
       end
     end
-    
-    
 
 
     def destroy
@@ -43,6 +41,7 @@ class RoutinesController < ApplicationController
       @routine.destroy
       redirect_to routines_path, notice: 'Routine was successfully deleted.'
     end
+    
     
   
     def routine_params
